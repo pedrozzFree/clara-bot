@@ -65,12 +65,12 @@ pkg install git
 
 #### 7. Clonar o repositório:
 ```bash
-cd /sdcard && git clone https://github.com/pedrozzFree/Jack-Bot.git
+cd /sdcard && git clone https://github.com/pedrozzFree/clara-bot.git
 ```
 
 #### 8. Iniciar o bot:
 ```bash
-cd /sdcard/succubus-bot && sh start.sh
+cd /sdcard/clara-bot && sh start.sh
 ```
 
 > Esse comando deve ser usado sempre que for iniciar o bot no terminal.
@@ -82,6 +82,9 @@ cd /sdcard/succubus-bot && sh start.sh
 Este projeto foi desenvolvido por **Pedrozz Mods** e está disponível gratuitamente para a comunidade.
 
 > O uso comercial é permitido, mas **manter os créditos** é uma forma justa de reconhecimento.
+
+----
+
 > Obs: para que os comandos de play etc funcione faça login nas apis pra conseguir sua key free
 
 ---
