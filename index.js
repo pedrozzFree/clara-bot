@@ -539,7 +539,6 @@ case 'menu':
 reagir(emoji)
 if (isBotao) {
 botaoLista(laura, from, menu(donoName, botName, prefixo, timed, data, hora, totalCmd, moji, emoji ), fotomenu, "COMANDOS", "Escolha uma opção:", [
-{ header: `⋆⃟ۜ${emoji} Menu`, title: "Menu", description: "", id: `${prefix}menu`},
 { header: `⋆⃟ۜ${emoji} Menu Adm`, title: "Menuadm", description: "", id: `${prefix}menuadm`},
 { header: `⋆⃟ۜ${emoji} Menu Dono`, title: "Menudono", description: "", id: `${prefix}menudono`},
 { header: `⋆⃟ۜ${emoji} Menu Jogos`, title: "MenuJogos", description: "", id: `${prefix}menujogos`}
@@ -1534,6 +1533,22 @@ await clara.sendMessage(from, { delete: { remoteJid: from, fromMe: false, id: in
 reagir("🗑")
 break
 
+case 'marcar': {
+if (!isGroupAdmins && !isDono) return enviar(msg.adm)
+if (!isGroup) return enviar(msg.grupo);
+if(!isGroupAdmins && !isDono) return enviar(msg.adm)
+reagir("📣")
+let metadata = await laura.groupMetadata(from);
+let participantes = metadata.participants;
+let listaMembros = participantes.map(mem => `┃  ⃟${emoji}๋࿆.• @${mem.id.split('@')[0]}๋࿆.•`).join('\n');
+let mensagem = `╭─〔 *๋࿆.•${q || "MARCAÇÃO DE MEMBROS"}๋࿆.•* 〕─╮
+${listaMembros}
+╰━━━━━━━━━━━━━━━━━━━╯`;
+await laura.sendMessage(from, { image: { url: "./clara/imagem/marcar.png" }, caption: mensagem, mentions: participantes.map(a => a.id) }, { quoted: info });
+await laura.sendMessage(from, { audio: { url: "https://pedrozz13755.github.io/Arquivos_web/audio/marcar.mp3" }, mimetype: "audio/mpeg", ptt: true }, { quoted: selo });
+}
+break
+
 case 'grupin':
 if (!isGroupAdmins && !isDono) return enviar(msg.adm)
 if (!q) return enviar("Cade o parâmetro de tempo?")
@@ -1804,8 +1819,9 @@ case "repet":
 default:
 if (isCmd) {
 reagir("🔴")
-clara.sendMessage(from, {sticker: {url: "./clara/figurinhas/clara6.webp"}})
-clara.sendMessage(from, {text: "*𝙼𝚎𝚞 𝚍𝚎𝚖𝚘𝚗𝚒𝚘, 𝚖𝚊𝚜 𝚟𝚘𝚌𝚎 𝚎 𝚋𝚞𝚛𝚛𝚘, 𝚑𝚎𝚒𝚗? 𝙺𝚔𝚔𝚔𝚔! 𝙲𝚘𝚖𝚊𝚗𝚍𝚘 𝚎𝚛𝚛𝚊𝚍𝚘! 𝚃𝚎𝚗𝚝𝚊 𝚍𝚊𝚛 𝚞𝚖𝚊 𝚘𝚕𝚑𝚊𝚍𝚊 𝚗𝚘 𝚖𝚎𝚗𝚞 𝚎 𝚙𝚎𝚐𝚊 𝚞𝚖 𝚍𝚘𝚌𝚒𝚗𝚑𝚘... 𝙳𝙴 𝙶𝚁𝙰𝙲𝙰! ~𝙷𝚎𝚑𝚎𝚑𝚎~*"})
+fotoErro = "./clara/imagem/erro.png"
+msgD = "*𝙼𝚎𝚞 𝚍𝚎𝚖𝚘𝚗𝚒𝚘, 𝚖𝚊𝚜 𝚟𝚘𝚌𝚎 𝚎 𝚋𝚞𝚛𝚛𝚘, 𝚑𝚎𝚒𝚗? 𝙺𝚔𝚔𝚔𝚔! 𝙲𝚘𝚖𝚊𝚗𝚍𝚘 𝚎𝚛𝚛𝚊𝚍𝚘! 𝚃𝚎𝚗𝚝𝚊 𝚍𝚊𝚛 𝚞𝚖𝚊 𝚘𝚕𝚑𝚊𝚍𝚊 𝚗𝚘 𝚖𝚎𝚗𝚞 𝚎 𝚙𝚎𝚐𝚊 𝚞𝚖 𝚍𝚘𝚌𝚒𝚗𝚑𝚘... 𝙳𝙴 𝙶𝚁𝙰𝙲𝙰! ~𝙷𝚎𝚑𝚎𝚑𝚎~*";
+botaoNormal(clara, from, msgD, fotoErro, [{ display_text: `⋆⃟ۜ${emoji} Menu`, id: `${prefix}menu` }])
 }
 break;
 }
