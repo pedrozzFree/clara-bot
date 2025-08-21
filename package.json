@@ -1,0 +1,28 @@
+{
+  "name": "clara-bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "pedrozzMods",
+  "license": "ISC",
+  "dependencies": {
+    "@whiskeysockets/baileys": "^6.7.18",
+    "baileys-mod": "^6.8.5",
+    "@adiwajshing/keyed-db": "^0.2.4",
+    "qrcode-terminal": "^0.12.0",
+    "pino": "^7.11.0",
+    "chalk": "^4.1.2",
+    "node-cron": "^4.2.1",
+    "moment-timezone": "^0.6.0",
+    "performance-now": "^2.1.0",
+    "awesome-phonenumber": "^5.9.0",
+    "fluent-ffmpeg": "^2.1.2",
+    "fs": "^0.0.1-security",
+    "jsdom": "^16.4.0",
+    "@bochilteam/scraper": "^4.2.4",
+    "node-fetch": "^2.6.1",
+    "axios": "^0.24.0"
+  }
+}
